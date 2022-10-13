@@ -1,7 +1,7 @@
 <?php
 
 /*
-List of encryption methods:
+List of encryption methods based on AES:
 AES-128-CBC
 AES-128-CFB
 AES-128-CFB1
@@ -48,7 +48,14 @@ function decrypt($string, $key, $decrypt_method) {
     $output = openssl_decrypt(base64_decode($string), $decrypt_method, $key, 0, $iv);
     return $output;
 }
-$encstring = encrypt("banana", '12345678', 'AES-256-CTR');
-echo "Encrypted: " . $encstring;
-echo "Descrypted: " . decrypt($encstring, '12345678', 'AES-256-CTR');
+
+function test($teststring)
+{
+    //Encrypted String
+    $encstring = encrypt($teststring, '12345678', 'AES-256-CTR');
+
+    //Try to Encrypt and Decrypt
+    echo "Encrypted: " . $encstring . "\n";
+    echo "Descrypted: " . decrypt($encstring, '12345678', 'AES-256-CTR') . "\n";
+}
 ?>
