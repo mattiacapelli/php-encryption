@@ -48,6 +48,7 @@ function decrypt($string, $key, $decrypt_method) {
     $output = openssl_decrypt(base64_decode($string), $decrypt_method, $key, 0, $iv);
     return $output;
 }
-
-
+$encstring = encrypt("banana", '12345678', 'AES-256-CTR');
+echo "Encrypted: " . $encstring;
+echo "Descrypted: " . decrypt($encstring, '12345678', 'AES-256-CTR');
 ?>
