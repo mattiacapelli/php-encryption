@@ -18,7 +18,7 @@ AES-192-CTR
 AES-192-ECB
 AES-192-OFB
 AES-256-CBC
-AES-256-CFB
+<Favourite> AES-256-CFB
 AES-256-CFB1
 AES-256-CFB8
 AES-256-CTR
@@ -49,7 +49,7 @@ function decrypt($string, $key, $decrypt_method) {
     return $output;
 }
 
-function test($teststring)
+function test($teststring,)
 {
     //Encrypted String
     $encstring = encrypt($teststring, '12345678', 'AES-256-CTR');
