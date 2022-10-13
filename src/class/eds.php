@@ -8,7 +8,12 @@ class eds
     private $method;
     private $key;
     private $iv;
-    openssl_random_pseudo_bytes(openssl_cipher_iv_length($method));
+
+    public function __construct($method, $key, $iv) {
+        $this->$method = $method;
+        $this->$key = $key;
+        $this->$iv = $iv;
+    }
 }
 
 ?>
