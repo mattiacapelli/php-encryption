@@ -49,13 +49,11 @@ function decrypt($string, $key, $decrypt_method) {
     return $output;
 }
 
-function test($teststring,)
-{
-    //Encrypted String
-    $encstring = encrypt($teststring, '12345678', 'AES-256-CTR');
-
-    //Try to Encrypt and Decrypt
-    echo "Encrypted: " . $encstring . "\n";
-    echo "Descrypted: " . decrypt($encstring, '12345678', 'AES-256-CTR') . "\n";
+function test($teststring, $key, $method) {
+    $encrypted = encrypt($teststring, $key, $method);
+    $decrypted = decrypt($encrypted, $key, $method);
+    echo "Test string: $teststring \n";
+    echo "Result encrypted: $encrypted \n";
+    echo "Result decrypted: $decrypted \n";
 }
 ?>
