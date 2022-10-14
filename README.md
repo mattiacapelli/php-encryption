@@ -1,2 +1,1 @@
-# php-encryption
- 
+# 🔐 PHP Encrypt-Decryption Class and Functions
