@@ -3,6 +3,8 @@
 EDS - Encrypt and Decrypt String using all the AES method
 */
 
+require '../error/error.php';
+
 class eds 
 {
     private $method;
@@ -14,6 +16,66 @@ class eds
         $this->$key = $key;
         $this->$iv = $iv;
     }
-}
 
+    public function Encrypt(string $toencrypt) {
+        $output = false;
+        $secret_iv = $iv;
+        $key = hash('sha256', $key);
+        $iv = substr(hash('sha256', $secret_iv), 0, 16);
+        $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
+        $output = base64_encode($output);
+        return $output;
+    }
+
+    public function Decrypt(string $todecrypt) {
+        $output = false;
+        $secret_iv = $iv;
+        $key = hash('sha256', $key);
+        $iv = substr(hash('sha256', $secret_iv), 0, 16);
+        $output = openssl_decrypt(base64_decode($string), $decrypt_method, $key, 0, $iv);
+        return $output;
+    }
+
+    public function GenerateIV (bool $checkit, bool $returnit, bool $saveit) {
+        if ($checkit)
+        {
+            $wasItSecure = false;
+            $iv = openssl_random_pseudo_bytes(16, $wasItSecure);
+            if ($wasItSecure) {
+                if ($returnit && $saveit) {
+                    return $iv;
+                    $this.$iv = $iv;
+                } elseif ($returnit) {
+                    return $iv;
+                } elseif ($saveit) {
+                    $this.$iv = $iv;
+                } else {
+                    return "Error001 -> Invalid Parameters";
+                }
+            }
+        }
+        
+    }
+    
+    public function GenerateKey (bool $checkit, bool $returnit, bool $saveit) {
+        if ($checkit)
+        {
+            $wasItSecure = false;
+            $key = openssl_random_pseudo_bytes(32, $wasItSecure);
+            if ($wasItSecure) {
+                if ($returnit && $saveit) {
+                    return $key;
+                    $this.$key = $key;
+                } elseif ($returnit) {
+                    return $key;
+                } elseif ($saveit) {
+                    $this.$key = $key;
+                } else {
+                    return "Error001 -> Invalid Parameters";
+                }
+            }
+        }
+        
+    }
+}
 ?>
