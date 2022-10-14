@@ -3,8 +3,6 @@
 EDS - Encrypt and Decrypt String using all the AES method
 */
 
-require '../error/error.php';
-
 class eds 
 {
     private $method;
@@ -56,7 +54,7 @@ class eds
         }
         
     }
-    
+
     public function GenerateKey (bool $checkit, bool $returnit, bool $saveit) {
         if ($checkit)
         {
@@ -78,4 +76,8 @@ class eds
         
     }
 }
+$eds = new eds("AES-256-CBC", "12345678901234567890123456789012", "1234567890123456");
+echo eds->GenerateKey(true, true, false);
+echo "<br>";
+echo eds->GenerateIV(true, true, false);
 ?>
