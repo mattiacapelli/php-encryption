@@ -22,6 +22,7 @@ function decrypt($todecrypt_string, $decryption_key, $decryption_method)
 
 - Build the Encryption/Decryption function for files
 
+- Build the Encryption/Decryption class
 
 ## Authors
 
