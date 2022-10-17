@@ -1,5 +1,5 @@
 # 🔐 PHP Encrypt-Decryption Class and Functions
-# 🚧 Work in progress
+## 🚧 Work in progress
 Simple Functions & Class self-maded for my little project
 
 
