@@ -20,9 +20,11 @@ function decrypt($todecrypt_string, $decryption_key, $decryption_method)
 
 ## Roadmap
 
-- Build the Encryption/Decryption function for files
+- ✅ Build the Encryption/Decryption functions for files
 
-- Build the Encryption/Decryption class
+- ✅ Build the Encryption/Decryption functions for files
+
+- 🚧 Build the Encryption/Decryption class
 
 ## Authors
 
