@@ -48,12 +48,4 @@ function decrypt($string, $key, $decrypt_method) {
     $output = openssl_decrypt(base64_decode($string), $decrypt_method, $key, 0, $iv);
     return $output;
 }
-
-function test($teststring, $key, $method) {
-    $encrypted = encrypt($teststring, $key, $method);
-    $decrypted = decrypt($encrypted, $key, $method);
-    echo "Test string: $teststring \n";
-    echo "Result encrypted: $encrypted \n";
-    echo "Result decrypted: $decrypted \n";
-}
 ?>
